@@ -26,4 +26,5 @@ zip: copy_template test clean_template
 
 clean:
 	rm -rf PE_Latex_Template
+	rm *~
 
