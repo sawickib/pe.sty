@@ -5,16 +5,16 @@
 
 \usepackage{amsfonts}
 
-\usepackage{pe}           % possible options: polish, proceedings
+\usepackage[]{pe}   % possible options: english, polish, proceedings
                           % polish mode will switch to Polish language (Fig. -> Rys., etc)
                           % proceedings mode will not display the footer
 
-
-\peNo{R. 86 NR 1/2010}    % year and number of the journal -- will be used in the page footer
-                          % meaningless in proceedings mode
-
-\startpage{91}            % first page number
-
+%%% Begin of DO NOT EDIT editor settings section
+\peNo{R. 86 NR 1/2010}         % year and number of the journal displayed in the page footer
+                                % meaningless in proceedings mode
+\startpage{91}                % first page number
+\doi{10.12915/pe.2014.02.02}   % doi number
+%%% End of DO NOT EDIT editor settings section
 
 % put local definitions here
 \def\baselinestretch{1}   % setting it to 0.99-0.98 allows us to pack more content
@@ -32,11 +32,12 @@
 
 \title{Searching for the best optimizer for an automated CAD system}
 
+\tytul{Wybór procedury optymalizacyjnej dla systemu CAD}
+
 \author{Jacek STARZYŃSKI\aff1, Robert SZMURŁO\aff1, Piotr ROWIŃSKI\aff1, Andrzej MICHALSKI\aff{1,2}\\
 Zbigniew WATRAL\aff2, Stanisław WINCENCIAK\aff1}
 
 \affiliation{Warsaw University of Technology (1), Military Academy of Technology (2)}
-
 
 \abstract{
 Choice of a robust and universal optimization procedure is one of the crucial design decision for many Computer Aided Design systems. Evolutionary Algorithms are commonly advised in such situations. This paper shows, that such choice is not always the best one. Use of a classical deterministic procedure may lead to better results which are obtained much faster. Example CAD system for electromagnetic flow meters design is used as a practical example illustrating the problem.
@@ -44,7 +45,6 @@ Choice of a robust and universal optimization procedure is one of the crucial de
 
 \streszczenie{
 Komputerowe systemy wspomagające projektowanie wymagają od swoich twórców wyboru właściwej: uniwersalnej i odpornej na błędy użytkownika, procedury optymalizacji. Często proponowanym rozwiązaniem jest wykorzystanie w takich systemach algorytmów ewolucyjnych. W tym artykule próbujemy pokazać, że taki wybór nie zawsze jest właściwy. Zastosowanie klasycznego algorytmu deterministycznego prowadzi bowiem do lepszego rozwiązania, które ponadto jest znajdowane znacznie szybciej. Rozważania zostały zilustrowane przykładem systemu wspomagającego projektowanie przepływomierzy elektromagnetycznych.
-\textbf{(Wybór procedury optymalizacyjnej dla systemu CAD)}
 }
 
 \slowakluczowe{systemy CAD, optymalizacja, algorytmy deterministyczne, algorytmy ewolucyjne}
@@ -240,9 +240,6 @@ decrease the quality of obtained results.
 The practical example presented in this paper suggests that application of the deterministic optimizer should be always considered. If the cost function is differentiable and its gradient may be calculated numerically then the implementation
 of the deterministic optimizer is not more difficult then the implementation of the evolutionary one. Moreover the
 optimal design will be obtained much faster with the deterministic optimizer and its quality will be much better.
-
-Usually much more programming effort is needed if one wants to calculate the more exact (analytical) values of the gradient
-or the Hessian matrix, but the quality of the results obtained with such implementation should be superior.
 
 Comparison of two example desing problems (A and B) and their solutions suggests that the optimality criterion should be
 forced not only by the field quality, but also by some additional criteria: costs of production and exploatation of the device.

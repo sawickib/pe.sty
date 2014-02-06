@@ -6,6 +6,9 @@
 % 13 kwietnia 2006
 % 15 lipca 2009
 % 25 stycznia 2012
+% Bartosz.Sawicki@ee.pw.edu.pl
+% 2014-02-06
+
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{pe}
 
@@ -32,7 +35,7 @@
 \RequirePackage[leqno]{amsmath}
 \RequirePackage{soul}
 \RequirePackage{balance}
-\RequirePackage{ogonek}
+%\RequirePackage{ogonek}
 
 \renewcommand{\sfdefault}{phv}
 \renewcommand{\rmdefault}{ptm}
@@ -109,6 +112,9 @@
 
 \def\arraystretch{1.1}
 
+\def\tytul#1{\gdef\@tytul{#1}}
+\def\@tytul{Please define Polish title using $\backslash$tytul command.}
+
 \def\affiliation#1{\gdef\@affiliation{#1}}
 \def\@affiliation{Please specify author's affiliation: use $\backslash$affiliation command.}
 
@@ -124,6 +130,10 @@
 \long\def\keywords#1{\long\gdef\@keywords{#1}}
 \def\@keywords{Not defined. Use $\backslash$keywords command to define keywords.}
 
+\def\doi#1{\gdef\@doi{#1}}
+\def\@doi{10.12915/pe.YYYY.MM.NN}
+
+
 \def\maketitle{\setcounter{page}{\@startpage}\par
  \begingroup
     \twocolumn[\@maketitle]% original
@@ -138,30 +148,35 @@
     \vskip 0.5em
     {\small \@affiliation}
     \vskip 2em
+  \if@Polish
+    {\huge\bfseries\@tytul}
+  \else
     {\huge\bfseries\@title}
+  \fi
   \end{flushright}
   \vskip 2em
   \if@Polish
     {\it
     {\abstractsize \textbf{Streszczenie.} \@streszcz\par}
     \vskip 1em
-    {\abstractsize \textbf{Abstract.} \@abstr\par}
+    {\abstractsize \textbf{Abstract.} \@abstr \textbf{(\@title)}\par}
     \vskip 1em
     }
     {\abstractsize \textbf{S\l{}owa kluczowe:} \@slklucz\\
                    \textbf{Keywords:} \@keywords\par}
-   \else
+  \else
     {\it
     {\abstractsize \textbf{Abstract.} \@abstr\par}
     \vskip 1em
-    {\abstractsize \textbf{Streszczenie.} \@streszcz\par}
+    {\abstractsize \textbf{Streszczenie.} \@streszcz\textbf{(\@tytul)}\par}
     \vskip 1em
     }
     {\abstractsize \textbf{Keywords:} \@keywords\\
                    \textbf{S\l{}owa kluczowe:} \@slklucz\par}
-   \fi
-   \vskip 1.5em
-
+  \fi
+  \vskip 0.8em
+  {\abstractsize doi:\@doi\par}
+  \vskip 1.0em
 }
 
 \def\aff#1{$^\text{#1}$}
