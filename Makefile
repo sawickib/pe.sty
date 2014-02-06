@@ -24,10 +24,11 @@ clean_template:
 	rm -f $(PREFIX)/*.bbl
 	rm -f $(PREFIX)/*.pdf
 
-zip: copy_template test 
+zip: copy_template test clean_template 
 	zip -r $(PREFIX)_`date +%Y%m%d`.zip $(PREFIX)
 
 clean:
 	rm -rf $(PREFIX)
-	rm -f *~
+	rm -f *~	
+	rm -f sample_paper/*~
 
