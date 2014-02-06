@@ -5,7 +5,7 @@
 
 \usepackage{amsfonts}
 
-\usepackage[]{pe}   % possible options: english, polish, proceedings
+\usepackage[polish]{pe}         % possible options: polish, proceedings
                           % polish mode will switch to Polish language (Fig. -> Rys., etc)
                           % proceedings mode will not display the footer
 
@@ -16,7 +16,7 @@
 \doi{10.12915/pe.2014.02.02}   % doi number
 %%% End of DO NOT EDIT editor settings section
 
-% put local definitions here
+%%% Begin of local definitions
 \def\baselinestretch{1}   % setting it to 0.99-0.98 allows us to pack more content
                           % in limited number of pages (this is not welcome be the Editor ;-)
 \def\tabcolsep{3.0pt}     % tables are a little bit narrower
@@ -26,12 +26,14 @@
 
 \def\vect#1{\text{\bf #1}}
 \def\rref#1{\figurename~\ref{#1}}
-% end of local definitions
 
-% before-text material
+%%% End of local definitions
 
+%%% Begin of header section data
+
+% English title
 \title{Searching for the best optimizer for an automated CAD system}
-
+% Polish title (leave empty if you are not Polish)
 \tytul{Wybór procedury optymalizacyjnej dla systemu CAD}
 
 \author{Jacek STARZYŃSKI\aff1, Robert SZMURŁO\aff1, Piotr ROWIŃSKI\aff1, Andrzej MICHALSKI\aff{1,2}\\
@@ -39,25 +41,27 @@ Zbigniew WATRAL\aff2, Stanisław WINCENCIAK\aff1}
 
 \affiliation{Warsaw University of Technology (1), Military Academy of Technology (2)}
 
+% English abstract
 \abstract{
 Choice of a robust and universal optimization procedure is one of the crucial design decision for many Computer Aided Design systems. Evolutionary Algorithms are commonly advised in such situations. This paper shows, that such choice is not always the best one. Use of a classical deterministic procedure may lead to better results which are obtained much faster. Example CAD system for electromagnetic flow meters design is used as a practical example illustrating the problem.
 }
-
+% Polish abstract (leave empty if you are not Polish)
 \streszczenie{
 Komputerowe systemy wspomagające projektowanie wymagają od swoich twórców wyboru właściwej: uniwersalnej i odpornej na błędy użytkownika, procedury optymalizacji. Często proponowanym rozwiązaniem jest wykorzystanie w takich systemach algorytmów ewolucyjnych. W tym artykule próbujemy pokazać, że taki wybór nie zawsze jest właściwy. Zastosowanie klasycznego algorytmu deterministycznego prowadzi bowiem do lepszego rozwiązania, które ponadto jest znajdowane znacznie szybciej. Rozważania zostały zilustrowane przykładem systemu wspomagającego projektowanie przepływomierzy elektromagnetycznych.
 }
 
+% English keywords
+\keywords{CAD, optimal design, deterministic algorithms, evolutionary algorithms}
+% Polish keywords (leave empty if you are not Polish)
 \slowakluczowe{systemy CAD, optymalizacja, algorytmy deterministyczne, algorytmy ewolucyjne}
 
+%%% End of header section data
 
-\keywords{CAD, optimal design, deterministic algorithms, evolutionary algorithms}
-
+%%% Begin of main article
 
 \begin{document}
 
-
 \maketitle
-
 
 \section{Introduction}
 Automated Computer Aided Design (CAD) systems are currently commonly used in many areas of engineering. Use of such tools allows to design and prototype final products with better performance more effectively. One of the crucial components of many CAD systems is an automated optimization procedure. We assume here, that the user of such a system is responsible for general design decisions, and the system's role is to find the best parameters for the chosen design.  Such tasks are usually formulated in form of one or many cost functions and the best values are found in process of minimization of these functions.

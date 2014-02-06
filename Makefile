@@ -1,30 +1,33 @@
 
+PREFIX=PE_LaTeX_Template
+
 all: zip
 
 display: test
-	evince PE_Latex_Template/sample.pdf
+	evince $(PREFIX)/sample.pdf
 
 test: copy_template
-	cd PE_Latex_Template; pdflatex sample.tex
+	cd $(PREFIX); pdflatex sample.tex
 
 copy_template:
-	mkdir -p PE_Latex_Template
-	cp -rf sample_paper/* PE_Latex_Template
-	cp -f pe.sty PE_Latex_Template
-	cp -f README.md PE_Latex_Template
+	mkdir -p $(PREFIX)
+	cp -rf sample_paper/* $(PREFIX)
+	cp -f pe.sty $(PREFIX)
+	cp -f README.md $(PREFIX)
 
 clean_template:
-	rm -f PE_Latex_Template/*.aux	
-	rm -f PE_Latex_Template/*.blg
-	rm -f PE_Latex_Template/*.ps
-	rm -f PE_Latex_Template/*.log
-	rm -f PE_Latex_Template/*.dvi
-	rm -f PE_Latex_Template/*.bbl
+	rm -f $(PREFIX)/*.aux	
+	rm -f $(PREFIX)/*.blg
+	rm -f $(PREFIX)/*.ps
+	rm -f $(PREFIX)/*.log
+	rm -f $(PREFIX)/*.dvi
+	rm -f $(PREFIX)/*.bbl
+	rm -f $(PREFIX)/*.pdf
 
-zip: copy_template test clean_template
-	zip -r PE_Latex_Template`date +%Y%m%d`.zip PE_Latex_Template
+zip: copy_template test 
+	zip -r $(PREFIX)_`date +%Y%m%d`.zip $(PREFIX)
 
 clean:
-	rm -rf PE_Latex_Template
-	rm *~
+	rm -rf $(PREFIX)
+	rm -f *~
 
