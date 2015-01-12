@@ -8,6 +8,7 @@
 % 25 stycznia 2012
 % Bartosz.Sawicki@ee.pw.edu.pl
 % 2014-02-06
+% 2015-01-12
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{pe}
@@ -25,9 +26,9 @@
 \ProcessOptions
 
 \if@Polish
-\typeout{-- Styl dla Przegladu Elektrotechnicznego. ver. 2009-07-15}
+\typeout{-- Styl dla Przegladu Elektrotechnicznego. ver. 2015-01-12}
 \else
-\typeout{-- Electrical Review Style. ver. 2009-07-15}
+\typeout{-- Electrical Review Style. ver. 2015-01-12}
 \fi
 
 \RequirePackage{graphicx}
@@ -147,8 +148,12 @@
     {\large\bfseries \@author}
     \vskip 0.5em
     {\small \@affiliation}
-    \vskip 2em
-  \if@Polish
+  \end{flushright}
+    \vskip 0.2em
+    {\abstractsize doi:\@doi\par}
+  \begin{flushright}
+    \vskip 1.2em
+   \if@Polish
     {\huge\bfseries\@tytul}
   \else
     {\huge\bfseries\@title}
@@ -174,8 +179,6 @@
     {\abstractsize \textbf{Keywords:} \@keywords\\
                    \textbf{S\l{}owa kluczowe:} \@slklucz\par}
   \fi
-  \vskip 0.8em
-  {\abstractsize doi:\@doi\par}
   \vskip 1.0em
 }
 
