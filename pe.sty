@@ -9,6 +9,8 @@
 % Bartosz.Sawicki@ee.pw.edu.pl
 % 2014-02-06
 % 2015-01-12
+% 2015-12-08
+
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{pe}
@@ -26,9 +28,9 @@
 \ProcessOptions
 
 \if@Polish
-\typeout{-- Styl dla Przegladu Elektrotechnicznego. ver. 2015-01-12}
+\typeout{-- Styl dla Przegladu Elektrotechnicznego. ver. 2015-12-08}
 \else
-\typeout{-- Electrical Review Style. ver. 2015-01-12}
+\typeout{-- Electrical Review Style. ver. 2015-12-08}
 \fi
 
 \RequirePackage{graphicx}
@@ -275,7 +277,7 @@
 \fi
 
 \long\def\authordata#1{
- \rule{3cm}{0.1pt}\\
+\vskip 1em \noindent
 \textit{{\bfseries\@authortitle}: #1}}
 
 \pagestyle{pepagestyle}

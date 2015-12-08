@@ -22,7 +22,6 @@ clean_template:
 	rm -f $(PREFIX)/*.log
 	rm -f $(PREFIX)/*.dvi
 	rm -f $(PREFIX)/*.bbl
-	rm -f $(PREFIX)/*.pdf
 
 zip: copy_template test clean_template 
 	zip -r $(PREFIX)_`date +%Y%m%d`.zip $(PREFIX)
